@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <ListBox HorizontalAlignment="Left" Height="371" Margin="10,38,0,0" VerticalAlignment="Top" Width="216"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="163"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="178,10,0,0" VerticalAlignment="Top" Width="48" Height="23"/>
+        <Grid HorizontalAlignment="Left" Height="399" Margin="231,10,0,0" VerticalAlignment="Top" Width="551">
+            <TextBox x:Name="CompanyName" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        </Grid>
+
     </Grid>
 </Window>

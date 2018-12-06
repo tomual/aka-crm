@@ -40,7 +40,7 @@ namespace aka_crm
                 {
                     Console.WriteLine("Done.");
                     SqlCommand sql = new SqlCommand();
-                    sql.CommandText = "SELECT * FROM Testing";
+                    sql.CommandText = "SELECT * FROM Company";
                     sql.CommandType = System.Data.CommandType.Text;
                     sql.Connection = connection;
                     connection.Open();
@@ -51,6 +51,7 @@ namespace aka_crm
                         {
                             Console.WriteLine("{0}\t{1}", reader.GetInt32(0),
                                 reader.GetString(1));
+                            CompanyName.Text = reader.GetString(1);
                         }
                     }
                     else
