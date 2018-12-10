@@ -1,4 +1,5 @@
-﻿using System;
+﻿using aka_crm.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
@@ -26,48 +27,12 @@ namespace aka_crm
         {
             InitializeComponent();
 
-            try
-            {
-                // Build connection string
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = "DESKTOP-HBKMI7B\\SQLEXPRESS";
-                builder.IntegratedSecurity = true;
-                builder.InitialCatalog = "master";
+            akacrmDataSetTableAdapters.CustomerTableAdapter customerTableAdapter;
+            customerTableAdapter = new akacrmDataSetTableAdapters.CustomerTableAdapter();
 
-                // Connect to SQL
-                Console.Write("Connecting to SQL Server ... ");
-                using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
-                {
-                    Console.WriteLine("Done.");
-                    SqlCommand sql = new SqlCommand();
-                    sql.CommandText = "SELECT * FROM Company";
-                    sql.CommandType = System.Data.CommandType.Text;
-                    sql.Connection = connection;
-                    connection.Open();
-                    SqlDataReader reader = sql.ExecuteReader();
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            Console.WriteLine("{0}\t{1}", reader.GetInt32(0),
-                                reader.GetString(1));
-                            CompanyName.Text = reader.GetString(1);
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("No rows found.");
-                    }
+            // Insert
+            customerTableAdapter.Insert("Steve's Shoe Shop", DateTime.Now, DateTime.Now);
 
-
-                }
-            }
-            catch (SqlException e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-
-            Console.WriteLine("All done. Press any key to finish...");
         }
     }
 }
