@@ -9,25 +9,15 @@ namespace aka_crm.Models
 {
     class Customer : INotifyPropertyChanged
     {
-        public Customer(string customerName)
-        {
-            Name = customerName;
-        }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime Modified { get; set; }
 
-        private string _Name;
-        public string Name
+        public Customer()
         {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                _Name = value;
-                OnPropertyChanged("Name");
-            }
         }
-
+        
         #region INotifyPropertyChanged Members
 
         public event PropertyChangedEventHandler PropertyChanged;
