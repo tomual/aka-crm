@@ -35,6 +35,8 @@ namespace aka_crm
 
             CompanyName.Text = customer.Name;
             Console.WriteLine(customer.Name);
+
+            CustomerList.ItemsSource = customerViewModel.getAll();
         }
     }
 }

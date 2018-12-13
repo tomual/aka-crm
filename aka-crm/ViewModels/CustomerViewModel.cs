@@ -62,6 +62,38 @@ namespace aka_crm.ViewModels
 
         }
 
+        public List<Customer> getAll()
+        {
+            List<Customer> customers = new List<Customer>();
+
+            using (SqlConnection connection = getConnection())
+            {
+                connection.Open();
+
+                SqlCommand sql = new SqlCommand();
+                String query = "SELECT * FROM Company";
+                sql = new SqlCommand(query, connection);
+                SqlDataReader reader = sql.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Customer customer = new Customer();
+                        customer.Id = Convert.ToInt32(reader.GetValue(reader.GetOrdinal("Id")).ToString());
+                        customer.Name = reader.GetValue(reader.GetOrdinal("name")).ToString();
+                        customer.Created = DateTime.Parse(reader.GetValue(reader.GetOrdinal("created")).ToString());
+                        customer.Modified = DateTime.Parse(reader.GetValue(reader.GetOrdinal("modified")).ToString());
+                        customers.Add(customer);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+            }
+            return customers;
+        }
+
         public void addCustomer()
         {
             SqlConnection connection = getConnection();
