@@ -33,7 +33,7 @@ namespace aka_crm
             CustomerViewModel customerViewModel = new CustomerViewModel();
             customer = customerViewModel.getById(6);
 
-            CompanyName.Text = customer.Name;
+            CustomerName.Text = customer.Name;
             Console.WriteLine(customer.Name);
 
             CustomerList.ItemsSource = customerViewModel.getAll();
