@@ -62,6 +62,43 @@ namespace aka_crm.ViewModels
 
         }
 
+        public CustomerProfile getProfile(Customer customer)
+        {
+            CustomerProfile profile = new CustomerProfile();
+
+            using (SqlConnection connection = getConnection())
+            {
+                connection.Open();
+
+                SqlCommand sql = new SqlCommand();
+                String query = "SELECT * FROM Profile WHERE customerId = @customerId";
+                sql = new SqlCommand(query, connection);
+                sql.Parameters.AddWithValue("@customerId", customer.Id);
+                SqlDataReader reader = sql.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        profile.ResponsibleParty = reader.GetValue(reader.GetOrdinal("ResponsibleParty")).ToString();
+                        profile.Street = reader.GetValue(reader.GetOrdinal("Street")).ToString();
+                        profile.City = reader.GetValue(reader.GetOrdinal("City")).ToString();
+                        profile.State = reader.GetValue(reader.GetOrdinal("State")).ToString();
+                        profile.Zip = reader.GetValue(reader.GetOrdinal("Zip")).ToString();
+                        profile.Phone = reader.GetValue(reader.GetOrdinal("Phone")).ToString();
+                        profile.Email = reader.GetValue(reader.GetOrdinal("Email")).ToString();
+
+                        return profile;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found.");
+                }
+            }
+            return null;
+
+        }
+
         public List<Customer> getAll()
         {
             List<Customer> customers = new List<Customer>();

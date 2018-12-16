@@ -30,18 +30,21 @@ namespace aka_crm
             InitializeComponent();
 
             Customer customer;
+            CustomerProfile profile;
             CustomerViewModel customerViewModel = new CustomerViewModel();
-            customer = customerViewModel.getById(6);
+            customer = customerViewModel.getById(16);
+            profile = customerViewModel.getProfile(customer);
 
             CustomerName.Text = customer.Name;
             Console.WriteLine(customer.Name);
+            Console.WriteLine(profile.ResponsibleParty);
 
             CustomerList.ItemsSource = customerViewModel.getAll();
 
             customer = new Customer();
             customer.Name = "La Casa";
 
-            CustomerProfile profile = new CustomerProfile();
+            profile = new CustomerProfile();
             profile.ResponsibleParty = "George Tan";
             profile.Street = "1900 Harney Street";
             profile.City = "Lincoln";
