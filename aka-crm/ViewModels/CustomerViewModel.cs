@@ -96,14 +96,32 @@ namespace aka_crm.ViewModels
 
         public void addCustomer()
         {
-            SqlConnection connection = getConnection();
-            SqlCommand sql = new SqlCommand();
-            String query = "INSERT INTO Company (name, created, modified) VALUES (@name, @created, @modified)";
-            sql = new SqlCommand(query, connection);
-            sql.Parameters.AddWithValue("@name", "Steve's Shoe Shop");
-            sql.Parameters.AddWithValue("@created", DateTime.Now);
-            sql.Parameters.AddWithValue("@modified", DateTime.Now);
-            sql.ExecuteNonQuery();
+            using (SqlConnection connection = getConnection())
+            {
+                connection.Open();
+
+                SqlCommand sql = new SqlCommand();
+                String query = "INSERT INTO Company (name, created, modified) output INSERTED.ID VALUES (@name, @created, @modified)";
+                sql = new SqlCommand(query, connection);
+                sql.Parameters.AddWithValue("@name", "Steve's Shoe Shop");
+                sql.Parameters.AddWithValue("@created", DateTime.Now);
+                sql.Parameters.AddWithValue("@modified", DateTime.Now);
+                int customerId = (int) sql.ExecuteScalar();
+                Console.WriteLine(customerId);
+
+                query = "INSERT INTO Profile (customerId, responsibleParty, street, city, state, zip, phone, email) output INSERTED.ID VALUES (@customerId, @responsibleParty, @street, @city, @state, @zip, @phone, @email)";
+                sql = new SqlCommand(query, connection);
+                sql.Parameters.AddWithValue("@customerId", customerId);
+                sql.Parameters.AddWithValue("@responsibleParty", "Test");
+                sql.Parameters.AddWithValue("@street", "Test");
+                sql.Parameters.AddWithValue("@city", "Test");
+                sql.Parameters.AddWithValue("@state", "Test");
+                sql.Parameters.AddWithValue("@zip", "Test");
+                sql.Parameters.AddWithValue("@phone", "Test");
+                sql.Parameters.AddWithValue("@email", "Test");
+                sql.ExecuteNonQuery();
+
+            }
         }
     }
 }

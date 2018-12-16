@@ -37,6 +37,8 @@ namespace aka_crm
             Console.WriteLine(customer.Name);
 
             CustomerList.ItemsSource = customerViewModel.getAll();
+
+            customerViewModel.addCustomer();
         }
     }
 }
