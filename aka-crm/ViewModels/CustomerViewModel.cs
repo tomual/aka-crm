@@ -94,7 +94,7 @@ namespace aka_crm.ViewModels
             return customers;
         }
 
-        public void addCustomer()
+        public void addCustomer(Customer customer, CustomerProfile profile)
         {
             using (SqlConnection connection = getConnection())
             {
@@ -103,7 +103,7 @@ namespace aka_crm.ViewModels
                 SqlCommand sql = new SqlCommand();
                 String query = "INSERT INTO Company (name, created, modified) output INSERTED.ID VALUES (@name, @created, @modified)";
                 sql = new SqlCommand(query, connection);
-                sql.Parameters.AddWithValue("@name", "Steve's Shoe Shop");
+                sql.Parameters.AddWithValue("@name", customer.Name);
                 sql.Parameters.AddWithValue("@created", DateTime.Now);
                 sql.Parameters.AddWithValue("@modified", DateTime.Now);
                 int customerId = (int) sql.ExecuteScalar();
@@ -112,13 +112,13 @@ namespace aka_crm.ViewModels
                 query = "INSERT INTO Profile (customerId, responsibleParty, street, city, state, zip, phone, email) output INSERTED.ID VALUES (@customerId, @responsibleParty, @street, @city, @state, @zip, @phone, @email)";
                 sql = new SqlCommand(query, connection);
                 sql.Parameters.AddWithValue("@customerId", customerId);
-                sql.Parameters.AddWithValue("@responsibleParty", "Test");
-                sql.Parameters.AddWithValue("@street", "Test");
-                sql.Parameters.AddWithValue("@city", "Test");
-                sql.Parameters.AddWithValue("@state", "Test");
-                sql.Parameters.AddWithValue("@zip", "Test");
-                sql.Parameters.AddWithValue("@phone", "Test");
-                sql.Parameters.AddWithValue("@email", "Test");
+                sql.Parameters.AddWithValue("@responsibleParty", profile.ResponsibleParty);
+                sql.Parameters.AddWithValue("@street", profile.Street);
+                sql.Parameters.AddWithValue("@city", profile.City);
+                sql.Parameters.AddWithValue("@state", profile.State);
+                sql.Parameters.AddWithValue("@zip", profile.Zip);
+                sql.Parameters.AddWithValue("@phone", profile.Phone);
+                sql.Parameters.AddWithValue("@email", profile.Email);
                 sql.ExecuteNonQuery();
 
             }

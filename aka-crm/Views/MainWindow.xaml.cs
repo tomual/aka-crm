@@ -38,7 +38,19 @@ namespace aka_crm
 
             CustomerList.ItemsSource = customerViewModel.getAll();
 
-            customerViewModel.addCustomer();
+            customer = new Customer();
+            customer.Name = "La Casa";
+
+            CustomerProfile profile = new CustomerProfile();
+            profile.ResponsibleParty = "George Tan";
+            profile.Street = "1900 Harney Street";
+            profile.City = "Lincoln";
+            profile.State= "NE";
+            profile.Zip= "68102";
+            profile.Phone = "402 231 2543";
+            profile.Email = "testdude@mail.com";
+
+            customerViewModel.addCustomer(customer, profile);
         }
     }
 }
