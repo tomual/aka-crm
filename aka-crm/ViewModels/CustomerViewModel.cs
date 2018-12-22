@@ -131,7 +131,7 @@ namespace aka_crm.ViewModels
             return customers;
         }
 
-        public void addCustomer(Customer customer, CustomerProfile profile)
+        public int addCustomer(Customer customer, CustomerProfile profile)
         {
             using (SqlConnection connection = getConnection())
             {
@@ -157,7 +157,7 @@ namespace aka_crm.ViewModels
                 sql.Parameters.AddWithValue("@phone", profile.Phone);
                 sql.Parameters.AddWithValue("@email", profile.Email);
                 sql.ExecuteNonQuery();
-
+                return customerId;
             }
         }
     }

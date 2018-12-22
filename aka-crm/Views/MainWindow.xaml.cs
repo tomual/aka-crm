@@ -29,26 +29,20 @@ namespace aka_crm
         {
             InitializeComponent();
 
+            NewCustomerForm.Visibility = Visibility.Hidden;
+
             Customer customer;
             CustomerViewModel customerViewModel = new CustomerViewModel();
             customer = customerViewModel.getById(16);
             displayProfile(customer);
 
             CustomerList.ItemsSource = customerViewModel.getAll();
+        }
 
-            //customer = new Customer();
-            //customer.Name = "La Casa";
-
-            //profile = new CustomerProfile();
-            //profile.ResponsibleParty = "George Tan";
-            //profile.Street = "1900 Harney Street";
-            //profile.City = "Lincoln";
-            //profile.State= "NE";
-            //profile.Zip= "68102";
-            //profile.Phone = "402 231 2543";
-            //profile.Email = "testdude@mail.com";
-
-            //customerViewModel.addCustomer(customer, profile);
+        private void loadList()
+        {
+            CustomerViewModel customerViewModel = new CustomerViewModel();
+            CustomerList.ItemsSource = customerViewModel.getAll();
         }
 
         private void displayProfile(Customer customer)
@@ -71,6 +65,7 @@ namespace aka_crm
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            NewCustomerForm.Visibility = Visibility.Visible;
             CustomerProfile.Visibility = Visibility.Hidden;
             GridTitle.Text = "New Customer";
         }
@@ -90,8 +85,13 @@ namespace aka_crm
             profile.Phone = PhoneInput.Text;
 
             CustomerViewModel customerViewModel = new CustomerViewModel();
-            customerViewModel.addCustomer(customer, profile);
+            customer.Id = customerViewModel.addCustomer(customer, profile);
+            customer.Created = DateTime.Now;
+            loadList();
+            displayProfile(customer);
 
+            NewCustomerForm.Visibility = Visibility.Hidden;
+            CustomerProfile.Visibility = Visibility.Visible;
         }
     }
 }

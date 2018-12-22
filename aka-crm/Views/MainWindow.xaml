@@ -34,7 +34,7 @@
         <Button Content="Button" HorizontalAlignment="Left" Margin="178,10,0,0" VerticalAlignment="Top" Width="48" Height="23"/>
         <Grid HorizontalAlignment="Left" Height="399" Margin="231,10,0,0" VerticalAlignment="Top" Width="551">
             <TextBlock x:Name="GridTitle" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
-            <TabControl x:Name="CustomerProfile" HorizontalAlignment="Left" Height="325" Margin="10,43,0,0" VerticalAlignment="Top" Width="531" TabStripPlacement="Left" Visibility="Hidden">
+            <TabControl x:Name="CustomerProfile" HorizontalAlignment="Left" Height="325" Margin="10,43,0,0" VerticalAlignment="Top" Width="531" TabStripPlacement="Left">
                 <TabItem Header="Profile">
                     <Grid Background="#FFE5E5E5">
                         <Grid HorizontalAlignment="Left" Height="297" Margin="10,10,0,0" VerticalAlignment="Top" Width="383">
@@ -74,7 +74,7 @@
                     <Grid Background="#FFE5E5E5"/>
                 </TabItem>
             </TabControl>
-            <Grid HorizontalAlignment="Left" Height="341" Margin="10,27,0,0" VerticalAlignment="Top" Width="512">
+            <Grid x:Name="NewCustomerForm" HorizontalAlignment="Left" Height="341" Margin="10,27,0,0" VerticalAlignment="Top" Width="512">
                 <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Width="98" Margin="0,8,0,0"/>
                 <TextBox x:Name="NameInput" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Margin="126,11,174,0"/>
                 <Label Content="Address" HorizontalAlignment="Left" VerticalAlignment="Top" Width="98" Margin="0,36,0,0"/>
