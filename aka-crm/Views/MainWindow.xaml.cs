@@ -68,5 +68,30 @@ namespace aka_crm
             PhoneText.Text = profile.Phone;
             EmailText.Text = profile.Email;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CustomerProfile.Visibility = Visibility.Hidden;
+            GridTitle.Text = "New Customer";
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Customer customer = new Customer();
+            CustomerProfile profile = new CustomerProfile();
+
+            customer.Name = NameInput.Text;
+            profile.Street = StreetInput.Text;
+            profile.City = CityInput.Text;
+            profile.State = StateInput.Text;
+            profile.Zip = ZipInput.Text;
+            profile.ResponsibleParty = ResponsiblePartyInput.Text;
+            profile.Email = EmailInput.Text;
+            profile.Phone = PhoneInput.Text;
+
+            CustomerViewModel customerViewModel = new CustomerViewModel();
+            customerViewModel.addCustomer(customer, profile);
+
+        }
     }
 }
