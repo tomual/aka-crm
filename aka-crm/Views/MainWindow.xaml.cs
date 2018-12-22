@@ -57,7 +57,7 @@ namespace aka_crm
             CustomerProfile profile;
             profile = customerViewModel.getProfile(customer);
 
-            CustomerName.Text = customer.Name;
+            GridTitle.Text = customer.Name;
 
             NameText.Text = customer.Name;
             ResponsiblePartyText.Text = profile.ResponsibleParty;

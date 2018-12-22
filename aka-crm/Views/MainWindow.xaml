@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="CustomerList" HorizontalAlignment="Left" Height="371" Margin="10,38,0,0" VerticalAlignment="Top" Width="216">
+        <ListBox x:Name="CustomerList" HorizontalAlignment="Left" Height="340" Margin="10,38,0,0" VerticalAlignment="Top" Width="216">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Grid Margin="5, 5" Width="180">
+                    <Grid Width="180">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="7*"/>
                             <RowDefinition Height="6*"/>
@@ -19,7 +19,7 @@
                             <ColumnDefinition Width="20*"/>
                             <ColumnDefinition Width="206*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock HorizontalAlignment="Left" Margin="10,4,0,-2" TextWrapping="Wrap" Text="{Binding Id}" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Height="16" Width="49" FontSize="8">
+                        <TextBlock HorizontalAlignment="Left" Margin="10,4,0,-2" TextWrapping="Wrap" Text="{Binding Id}" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Height="12" Width="49" FontSize="8">
                             <TextBlock.Foreground>
                                 <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveCaptionColorKey}}"/>
                             </TextBlock.Foreground>
@@ -33,48 +33,49 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="163"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="178,10,0,0" VerticalAlignment="Top" Width="48" Height="23"/>
         <Grid HorizontalAlignment="Left" Height="399" Margin="231,10,0,0" VerticalAlignment="Top" Width="551">
+            <TextBlock x:Name="GridTitle" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
             <TabControl HorizontalAlignment="Left" Height="325" Margin="10,43,0,0" VerticalAlignment="Top" Width="531" TabStripPlacement="Left">
-                <TabItem Header="Profile" Padding="16,10">
+                <TabItem Header="Profile">
                     <Grid Background="#FFE5E5E5">
-                        <Grid HorizontalAlignment="Left" Height="292" Margin="41,10,0,0" VerticalAlignment="Top" Width="383">
+                        <Grid HorizontalAlignment="Left" Height="297" Margin="10,10,0,0" VerticalAlignment="Top" Width="383">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="37*"/>
-                                <RowDefinition Height="37*"/>
-                                <RowDefinition Height="37*"/>
-                                <RowDefinition Height="69*"/>
-                                <RowDefinition Height="37*"/>
-                                <RowDefinition Height="38*"/>
-                                <RowDefinition Height="37*"/>
+                                <RowDefinition Height="28*"/>
+                                <RowDefinition Height="28*"/>
+                                <RowDefinition Height="28*"/>
+                                <RowDefinition Height="56*"/>
+                                <RowDefinition Height="28*"/>
+                                <RowDefinition Height="28*"/>
+                                <RowDefinition Height="101*"/>
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="88*"/>
-                                <ColumnDefinition Width="295*"/>
+                                <ColumnDefinition Width="76*"/>
+                                <ColumnDefinition Width="307*"/>
                             </Grid.ColumnDefinitions>
-                            <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="42" RenderTransformOrigin="0.667,0.231"/>
-                            <Label Content="Since" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="42" Grid.Row="1"/>
-                            <Label Content="Resp. Party" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="68" Grid.Row="2"/>
-                            <Label Content="Address" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="68" Grid.Row="3"/>
-                            <Label Content="Phone" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="68" Grid.Row="4"/>
-                            <Label Content="Email" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="68" Grid.Row="5"/>
-                            <TextBlock x:Name="NameText" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="16" Width="275"/>
-                            <TextBlock x:Name="CreatedText" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.Row="1" Height="16" Width="275"/>
-                            <TextBlock x:Name="ResponsiblePartyText" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.Row="2" Height="16" Width="275"/>
-                            <TextBlock x:Name="StreetText" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.Row="3" Height="16" Width="275"/>
-                            <TextBlock x:Name="PhoneText" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.Row="4" Height="16" Width="275"/>
-                            <TextBlock x:Name="EmailText" Grid.Column="1" HorizontalAlignment="Left" Margin="10,15,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.Row="5" Height="16" Width="275"/>
-                            <TextBlock x:Name="CityStateZipText" Grid.Column="1" HorizontalAlignment="Left" Margin="10,43,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.Row="3" Height="16" Width="275"/>
+                            <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="42" RenderTransformOrigin="0.667,0.231"/>
+                            <Label Content="Since" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="42" Grid.Row="1"/>
+                            <Label Content="Resp. Party" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="68" Grid.Row="2"/>
+                            <Label Content="Address" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="68" Grid.Row="3"/>
+                            <Label Content="Phone" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="68" Grid.Row="4"/>
+                            <Label Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="68" Grid.Row="5"/>
+                            <TextBlock x:Name="NameText" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="16" Width="275" Margin="0,5,0,0"/>
+                            <TextBlock x:Name="CreatedText" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.Row="1" Height="16" Width="275" Margin="0,5,0,0"/>
+                            <TextBlock x:Name="ResponsiblePartyText" Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.Row="2" Height="16" Width="275"/>
+                            <TextBlock x:Name="StreetText" Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.Row="3" Height="16" Width="275"/>
+                            <TextBlock x:Name="PhoneText" Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.Row="4" Height="16" Width="275" Margin="0,5,0,0"/>
+                            <TextBlock x:Name="EmailText" Grid.Column="1" HorizontalAlignment="Left" Margin="0,5,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.Row="5" Height="16" Width="275"/>
+                            <TextBlock x:Name="CityStateZipText" Grid.Column="1" HorizontalAlignment="Left" Margin="0,26,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Grid.Row="3" Height="16" Width="275"/>
                         </Grid>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Activity" Padding="16,10">
+                <TabItem Header="Activity">
                     <Grid Background="#FFE5E5E5"/>
                 </TabItem>
-                <TabItem Header="Notes" Padding="16,10">
+                <TabItem Header="Notes">
                     <Grid Background="#FFE5E5E5"/>
                 </TabItem>
             </TabControl>
-            <TextBlock x:Name="CustomerName" HorizontalAlignment="Left" Margin="86,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
         </Grid>
+        <Button Content="New Customer" HorizontalAlignment="Left" Margin="10,383,0,0" VerticalAlignment="Top" Width="216"/>
 
     </Grid>
 </Window>
