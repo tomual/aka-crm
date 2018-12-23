@@ -93,5 +93,15 @@ namespace aka_crm
             NewCustomerForm.Visibility = Visibility.Hidden;
             CustomerProfile.Visibility = Visibility.Visible;
         }
+
+        private void ListView_MouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            var item = ItemsControl.ContainerFromElement(sender as ListBox, e.OriginalSource as DependencyObject) as ListBoxItem;
+            if (item != null)
+            {
+                Customer customer = (Customer) item.DataContext;
+                displayProfile(customer);
+            }
+        }
     }
 }

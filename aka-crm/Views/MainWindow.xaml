@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="CustomerList" HorizontalAlignment="Left" Height="340" Margin="10,38,0,0" VerticalAlignment="Top" Width="216">
+        <ListBox x:Name="CustomerList" MouseDoubleClick="ListView_MouseDoubleClick" HorizontalAlignment="Left" Height="340" Margin="10,38,0,0" VerticalAlignment="Top" Width="216">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Width="180">
