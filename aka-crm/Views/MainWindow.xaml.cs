@@ -33,23 +33,23 @@ namespace aka_crm
 
             Customer customer;
             CustomerViewModel customerViewModel = new CustomerViewModel();
-            customer = customerViewModel.getById(16);
-            displayProfile(customer);
+            customer = customerViewModel.GetById(16);
+            DisplayProfile(customer);
 
-            CustomerList.ItemsSource = customerViewModel.getAll();
+            CustomerList.ItemsSource = customerViewModel.GetAll();
         }
 
-        private void loadList()
+        private void LoadList()
         {
             CustomerViewModel customerViewModel = new CustomerViewModel();
-            CustomerList.ItemsSource = customerViewModel.getAll();
+            CustomerList.ItemsSource = customerViewModel.GetAll();
         }
 
-        private void displayProfile(Customer customer)
+        private void DisplayProfile(Customer customer)
         {
             CustomerViewModel customerViewModel = new CustomerViewModel();
             CustomerProfile profile;
-            profile = customerViewModel.getProfile(customer);
+            profile = customerViewModel.GetProfile(customer);
 
             GridTitle.Text = customer.Name;
 
@@ -63,14 +63,14 @@ namespace aka_crm
             EmailText.Text = profile.Email;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonOpenCustomerForm(object sender, RoutedEventArgs e)
         {
             NewCustomerForm.Visibility = Visibility.Visible;
             CustomerProfile.Visibility = Visibility.Hidden;
             GridTitle.Text = "New Customer";
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void ButtonNewCustomer(object sender, RoutedEventArgs e)
         {
             Customer customer = new Customer();
             CustomerProfile profile = new CustomerProfile();
@@ -85,22 +85,22 @@ namespace aka_crm
             profile.Phone = PhoneInput.Text;
 
             CustomerViewModel customerViewModel = new CustomerViewModel();
-            customer.Id = customerViewModel.addCustomer(customer, profile);
+            customer.Id = customerViewModel.AddCustomer(customer, profile);
             customer.Created = DateTime.Now;
-            loadList();
-            displayProfile(customer);
+            LoadList();
+            DisplayProfile(customer);
 
             NewCustomerForm.Visibility = Visibility.Hidden;
             CustomerProfile.Visibility = Visibility.Visible;
         }
 
-        private void ListView_MouseDoubleClick(object sender, RoutedEventArgs e)
+        private void ListViewItemCustomer(object sender, RoutedEventArgs e)
         {
             var item = ItemsControl.ContainerFromElement(sender as ListBox, e.OriginalSource as DependencyObject) as ListBoxItem;
             if (item != null)
             {
                 Customer customer = (Customer) item.DataContext;
-                displayProfile(customer);
+                DisplayProfile(customer);
             }
         }
     }

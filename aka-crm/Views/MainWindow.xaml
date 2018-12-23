@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="CustomerList" MouseDoubleClick="ListView_MouseDoubleClick" HorizontalAlignment="Left" Height="340" Margin="10,38,0,0" VerticalAlignment="Top" Width="216">
+        <ListBox x:Name="CustomerList" MouseDoubleClick="ListViewItemCustomer" HorizontalAlignment="Left" Height="340" Margin="10,38,0,0" VerticalAlignment="Top" Width="216">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Width="180">
@@ -30,8 +30,8 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="163"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="178,10,0,0" VerticalAlignment="Top" Width="48" Height="23"/>
+        <TextBox x:Name="SearchInput" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="163"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="178,10,0,0" VerticalAlignment="Top" Width="48" Height="23"/>
         <Grid HorizontalAlignment="Left" Height="399" Margin="231,10,0,0" VerticalAlignment="Top" Width="551">
             <TextBlock x:Name="GridTitle" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="20"/>
             <TabControl x:Name="CustomerProfile" HorizontalAlignment="Left" Height="325" Margin="10,43,0,0" VerticalAlignment="Top" Width="531" TabStripPlacement="Left">
@@ -91,7 +91,7 @@
                 <TextBox x:Name="PhoneInput" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="212" Margin="126,203,0,0"/>
                 <Label Content="Email" HorizontalAlignment="Left" VerticalAlignment="Top" Width="98" Margin="0,228,0,0"/>
                 <TextBox x:Name="EmailInput" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="212" Margin="126,231,0,0"/>
-                <Button Content="Save" HorizontalAlignment="Left" Margin="126,259,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+                <Button Content="Save" HorizontalAlignment="Left" Margin="126,259,0,0" VerticalAlignment="Top" Width="75" Click="ButtonNewCustomer"/>
                 <Label x:Name="NameError" Content=" " HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="343,11,0,0"/>
                 <Label x:Name="AddressError" Content=" " HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="343,39,0,0"/>
                 <Label x:Name="CityError" Content=" " HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="343,67,0,0"/>
@@ -103,7 +103,7 @@
             </Grid>
 
         </Grid>
-        <Button Content="New Customer" HorizontalAlignment="Left" Margin="10,383,0,0" VerticalAlignment="Top" Width="216" Click="Button_Click"/>
+        <Button Content="New Customer" HorizontalAlignment="Left" Margin="10,383,0,0" VerticalAlignment="Top" Width="216" Click="ButtonOpenCustomerForm"/>
 
     </Grid>
 </Window>

@@ -10,7 +10,7 @@ namespace aka_crm.ViewModels
 {
     class CustomerViewModel
     {
-        private SqlConnection getConnection()
+        private SqlConnection GetConnection()
         {
             try
             {
@@ -29,11 +29,11 @@ namespace aka_crm.ViewModels
             return null;
         }
 
-        public Customer getById(int id)
+        public Customer GetById(int id)
         {
             Customer customer = new Customer();
 
-            using (SqlConnection connection = getConnection())
+            using (SqlConnection connection = GetConnection())
             {
                 connection.Open();
 
@@ -62,11 +62,11 @@ namespace aka_crm.ViewModels
 
         }
 
-        public CustomerProfile getProfile(Customer customer)
+        public CustomerProfile GetProfile(Customer customer)
         {
             CustomerProfile profile = new CustomerProfile();
 
-            using (SqlConnection connection = getConnection())
+            using (SqlConnection connection = GetConnection())
             {
                 connection.Open();
 
@@ -99,11 +99,11 @@ namespace aka_crm.ViewModels
 
         }
 
-        public List<Customer> getAll()
+        public List<Customer> GetAll()
         {
             List<Customer> customers = new List<Customer>();
 
-            using (SqlConnection connection = getConnection())
+            using (SqlConnection connection = GetConnection())
             {
                 connection.Open();
 
@@ -131,9 +131,9 @@ namespace aka_crm.ViewModels
             return customers;
         }
 
-        public int addCustomer(Customer customer, CustomerProfile profile)
+        public int AddCustomer(Customer customer, CustomerProfile profile)
         {
-            using (SqlConnection connection = getConnection())
+            using (SqlConnection connection = GetConnection())
             {
                 connection.Open();
 
